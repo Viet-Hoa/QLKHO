@@ -15,7 +15,7 @@ namespace DAO
         //dathang
         public List<DONDATHANG> load(DONDATHANG dh)
         {
-            return db.DONDATHANGs.ToList();
+            return db.DONDATHANGs.Include(s => s.NCC.TENNCC).OrderByDescending(s => s.NGAY).ToList();
         }
         public void them(DONDATHANG dh)
         {
@@ -34,7 +34,7 @@ namespace DAO
         }
         public List<CTDH> load(int id)
         {
-            return db.CTDHs.Where(s => s.ID == id).ToList();
+            return db.CTDHs.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
         }
         public void them(CTDH dh)
         {
@@ -55,7 +55,7 @@ namespace DAO
         //nhap
         public List<PHIEUNHAP> load(PHIEUNHAP pn)
         {
-            return db.PHIEUNHAPs.ToList();
+            return db.PHIEUNHAPs.Include(s => s.NCC.TENNCC).OrderByDescending(s => s.NGAY).ToList();
         }
         public void them(PHIEUNHAP pn)
         {
@@ -64,7 +64,7 @@ namespace DAO
         }
         public List<CTPN> load(int id)
         {
-            return db.CTPNs.Where(s => s.ID == id).ToList();
+            return db.CTPNs.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
         }
         public void them(CTPN pn)
         {

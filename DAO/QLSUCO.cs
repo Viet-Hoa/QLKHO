@@ -15,7 +15,7 @@ namespace DAO
         //dathang
         public List<SUCO> load(SUCO sc)
         {
-            return db.SUCOes.ToList();
+            return db.SUCOes.OrderByDescending(s => s.NGAY).ToList();
         }
         public void them(SUCO sc)
         {
@@ -34,7 +34,7 @@ namespace DAO
         }
         public List<CTSUCO> load(int id)
         {
-            return db.CTSUCOes.Where(s => s.ID == id).ToList();
+            return db.CTSUCOes.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
         }
         public void them(CTSUCO sc)
         {

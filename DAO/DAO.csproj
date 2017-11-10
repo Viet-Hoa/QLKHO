@@ -48,9 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QLDOITAC.cs" />
     <Compile Include="QLSUCO.cs" />
     <Compile Include="QLTK.cs" />
     <Compile Include="THONGKE.cs" />
+    <Compile Include="QLTHUCHI.cs" />
     <Compile Include="XUATKHO.cs" />
     <Compile Include="NHAPKHO.cs" />
     <Compile Include="QLSP.cs" />

@@ -43,7 +43,7 @@ namespace DAO
         public void giabq(int id, int sl, int gia)
         {
             var sp = db.SANPHAMs.Find(id);
-            sp.DG = (sp.DG * sp.SL + sl + gia) / (sp.SL + sl);
+            sp.DG = (sp.DG * sp.SL + sl * gia) / (sp.SL + sl);
             db.Entry(sp).State = EntityState.Modified;
             db.SaveChanges();
         }

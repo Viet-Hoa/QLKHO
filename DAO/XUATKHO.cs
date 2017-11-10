@@ -15,7 +15,7 @@ namespace DAO
         //ycxuat
         public List<YCXUAT> load(YCXUAT ycC)
         {
-            return db.YCXUATs.ToList();
+            return db.YCXUATs.Include(s => s.CUAHANG.TENCH).OrderByDescending(s => s.NGAY).ToList();
         }
         public void them(YCXUAT yc)
         {
@@ -34,7 +34,7 @@ namespace DAO
         }
         public List<CTYCX> load(int id)
         {
-            return db.CTYCXes.Where(s => s.ID == id).ToList();
+            return db.CTYCXes.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
         }
         public void them(CTYCX yc)
         {
@@ -55,7 +55,7 @@ namespace DAO
         //xuat
         public List<PHIEUXUAT> load(PHIEUXUAT px)
         {
-            return db.PHIEUXUATs.ToList();
+            return db.PHIEUXUATs.Include(s => s.CUAHANG.TENCH).OrderByDescending(s => s.NGAY).ToList();
         }
         public void them(PHIEUXUAT px)
         {
@@ -64,7 +64,7 @@ namespace DAO
         }
         public List<CTPX> load(int id)
         {
-            return db.CTPXes.Where(s => s.ID == id).ToList();
+            return db.CTPXes.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
         }
         public void them(CTPX px)
         {
