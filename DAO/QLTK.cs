@@ -29,6 +29,10 @@ namespace DAO
         public int dangnhap(String uname, String pas)
         {
             var nv = db.NHANVIENs.Where(s => s.USERNAME == uname && s.PASSWORD == pas).FirstOrDefault();
+            if (nv == null)
+                return 0;//nhap sai
+            if (nv.TINHTRANG == false)
+                return 3;//tai khoan bi khoa
             if (nv.LOAI == "admin")
                 return 1; //nv la admin
             return 2;//nv la user
