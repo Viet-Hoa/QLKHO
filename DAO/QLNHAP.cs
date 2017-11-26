@@ -9,64 +9,68 @@ using DTO;
 
 namespace DAO
 {
-    class NHAPKHO
+    public class QLNHAP
     {
-        private KHODMEntities db = new KHODMEntities();
+        private static KHODMEntities db = new KHODMEntities();
         //dathang
-        public List<DONDATHANG> load(DONDATHANG dh)
+        public static List<DONDATHANG> loaddh()
         {
             return db.DONDATHANGs.Include(s => s.NCC.TENNCC).OrderByDescending(s => s.NGAY).ToList();
         }
-        public void them(DONDATHANG dh)
+        public static void them(DONDATHANG dh)
         {
             db.DONDATHANGs.Add(dh);
             db.SaveChanges();
         }
-        public void sua(DONDATHANG dh)
+        public static void sua(DONDATHANG dh)
         {
             db.Entry(dh).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public void xoa(DONDATHANG dh)
+        public static void xoa(DONDATHANG dh)
         {
             db.DONDATHANGs.Remove(dh);
             db.SaveChanges();
         }
-        public List<CTDH> load(int id)
+        public static List<CTDH> loaddh(int id)
         {
             return db.CTDHs.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
         }
-        public void them(CTDH dh)
+        public static void them(CTDH dh)
         {
             db.CTDHs.Add(dh);
             db.SaveChanges();
         }
-        public void sua(CTDH dh)
+        public static void sua(CTDH dh)
         {
             db.Entry(dh).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public void xoa(CTDH dh)
+        public static void xoa(int id)
         {
-            db.CTDHs.Remove(dh);
-            db.SaveChanges();
+            var ct = db.CTDHs.Where(s => s.ID == id).ToList();
+            foreach (var dh in ct)
+            {
+                db.CTDHs.Remove(dh);
+                db.SaveChanges();
+            }         
         }
 
         //nhap
-        public List<PHIEUNHAP> load(PHIEUNHAP pn)
+        public static List<PHIEUNHAP> loadpn()
         {
             return db.PHIEUNHAPs.Include(s => s.NCC.TENNCC).OrderByDescending(s => s.NGAY).ToList();
         }
-        public void them(PHIEUNHAP pn)
+        public static void them(PHIEUNHAP pn)
         {
             db.PHIEUNHAPs.Add(pn);
             db.SaveChanges();
         }
-        public List<CTPN> load(int id)
+        public static List<CTPN> loadpn(int id)
         {
             return db.CTPNs.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
         }
-        public void them(CTPN pn)
+        public static void them(CTPN pn)
         {
             db.CTPNs.Add(pn);
             db.SaveChanges();

@@ -9,19 +9,19 @@ using DTO;
 
 namespace DAO
 {
-    class QLTK
+    public class QLTK
     {
-        private KHODMEntities db = new KHODMEntities();
-        public List<NHANVIEN> load()
+        private static KHODMEntities db = new KHODMEntities();
+        public static List<NHANVIEN> load()
         {
             return db.NHANVIENs.ToList();
         }
-        public void them(NHANVIEN nv)
+        public static void them(NHANVIEN nv)
         {
             db.NHANVIENs.Add(nv);
             db.SaveChanges();
         }
-        public void sua(NHANVIEN nv)
+        public static void sua(NHANVIEN nv)
         {
             db.Entry(nv).State = EntityState.Modified;
             db.SaveChanges();

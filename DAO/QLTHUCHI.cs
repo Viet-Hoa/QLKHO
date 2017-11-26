@@ -9,35 +9,35 @@ using DTO;
 
 namespace DAO
 {
-    class QLTHUCHI
+    public class QLTHUCHI
     {
-        private KHODMEntities db = new KHODMEntities();
+        private static KHODMEntities db = new KHODMEntities();
         //PHIEUTHU
-        public List<PHIEUTHU> load(PHIEUTHU pt)
+        public static List<PHIEUTHU> load(PHIEUTHU pt)
         {
             return db.PHIEUTHUs.Include(s => s.CUAHANG.TENCH).OrderByDescending(s => s.NGAY).ToList();
         }
-        public void them(PHIEUTHU pt)
+        public static void them(PHIEUTHU pt)
         {
             db.PHIEUTHUs.Add(pt);
             db.SaveChanges();
         }
-        public void xoa(PHIEUTHU pt)
+        public static void xoa(PHIEUTHU pt)
         {
             db.PHIEUTHUs.Remove(pt);
             db.SaveChanges();
         }
         //chi
-        public List<PHIEUCHI> load(PHIEUCHI pc)
+        public static List<PHIEUCHI> load(PHIEUCHI pc)
         {
             return db.PHIEUCHIs.Include(s => s.NCC.TENNCC).OrderByDescending(s => s.NGAY).ToList();
         }
-        public void them(PHIEUCHI pc)
+        public static void them(PHIEUCHI pc)
         {
             db.PHIEUCHIs.Add(pc);
             db.SaveChanges();
         }
-        public void xoa(PHIEUCHI pc)
+        public static void xoa(PHIEUCHI pc)
         {
             db.PHIEUCHIs.Remove(pc);
             db.SaveChanges();

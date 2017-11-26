@@ -9,64 +9,68 @@ using DTO;
 
 namespace DAO
 {
-    class XUATKHO
+    public class QLXUAT
     {
-        private KHODMEntities db = new KHODMEntities();
+        private static KHODMEntities db = new KHODMEntities();
         //ycxuat
-        public List<YCXUAT> load(YCXUAT ycC)
+        public static List<YCXUAT> loadyc()
         {
             return db.YCXUATs.Include(s => s.CUAHANG.TENCH).OrderByDescending(s => s.NGAY).ToList();
         }
-        public void them(YCXUAT yc)
+        public static void them(YCXUAT yc)
         {
             db.YCXUATs.Add(yc);
             db.SaveChanges();
         }
-        public void sua(YCXUAT yc)
+        public static void sua(YCXUAT yc)
         {
             db.Entry(yc).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public void xoa(YCXUAT yc)
+        public static void xoa(YCXUAT yc)
         {
             db.YCXUATs.Remove(yc);
             db.SaveChanges();
         }
-        public List<CTYCX> load(int id)
+        public static List<CTYCX> loadyc(int id)
         {
             return db.CTYCXes.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
         }
-        public void them(CTYCX yc)
+        public static void them(CTYCX yc)
         {
             db.CTYCXes.Add(yc);
             db.SaveChanges();
         }
-        public void sua(CTYCX yc)
+        public static void sua(CTYCX yc)
         {
             db.Entry(yc).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public void xoa(CTYCX yc)
+        public static void xoa(int id)
         {
-            db.CTYCXes.Remove(yc);
-            db.SaveChanges();
+            var ct = db.CTYCXes.Where(s => s.ID == id).ToList();
+            foreach (var yc in ct)
+            {
+                db.CTYCXes.Remove(yc);
+                db.SaveChanges();
+            }  
         }
 
         //xuat
-        public List<PHIEUXUAT> load(PHIEUXUAT px)
+        public static List<PHIEUXUAT> loadpx()
         {
             return db.PHIEUXUATs.Include(s => s.CUAHANG.TENCH).OrderByDescending(s => s.NGAY).ToList();
         }
-        public void them(PHIEUXUAT px)
+        public static void them(PHIEUXUAT px)
         {
             db.PHIEUXUATs.Add(px);
             db.SaveChanges();
         }
-        public List<CTPX> load(int id)
+        public static List<CTPX> loadpx(int id)
         {
             return db.CTPXes.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
         }
-        public void them(CTPX px)
+        public static void them(CTPX px)
         {
             db.CTPXes.Add(px);
             db.SaveChanges();

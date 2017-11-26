@@ -9,33 +9,33 @@ using DTO;
 
 namespace DAO
 {
-    class THONGKE
+    public class THONGKE
     {
-        private KHODMEntities db = new KHODMEntities();
+        private static KHODMEntities db = new KHODMEntities();
         //tonkho
-        public List<TONKHO> load()
+        public static List<TONKHO> load()
         {
             return db.TONKHOes.OrderByDescending(s => s.NGAY).ToList();
         }
-        public void them(TONKHO tk)
+        public static void them(TONKHO tk)
         {
             db.TONKHOes.Add(tk);
             db.SaveChanges();
         }
-        public List<CTTK> load(int id)
+        public static List<CTTK> load(int id)
         {
             return db.CTTKs.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
         }
         //thu chi
-        public List<PHIEUTHU> loadthu(DateTime tu, DateTime den)
+        public static List<PHIEUTHU> loadthu(DateTime tu, DateTime den)
         {
             return db.PHIEUTHUs.Where(s => s.NGAY >= tu && s.NGAY <= den).ToList();
         }
-        public List<PHIEUCHI> loadchi(DateTime tu, DateTime den)
+        public static List<PHIEUCHI> loadchi(DateTime tu, DateTime den)
         {
             return db.PHIEUCHIs.Where(s => s.NGAY >= tu && s.NGAY <= den).ToList();
         }
-        public List<CTPX> loadbanchay(DateTime tu, DateTime den)
+        public static List<CTPX> loadbanchay(DateTime tu, DateTime den)
         {
             List<CTPX> kq=new List<CTPX>();  
             var x = db.PHIEUXUATs.Where(s => s.NGAY >= tu && s.NGAY <= den).ToList();

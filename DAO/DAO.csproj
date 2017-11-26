@@ -53,8 +53,8 @@
     <Compile Include="QLTK.cs" />
     <Compile Include="THONGKE.cs" />
     <Compile Include="QLTHUCHI.cs" />
-    <Compile Include="XUATKHO.cs" />
-    <Compile Include="NHAPKHO.cs" />
+    <Compile Include="QLXUAT.cs" />
+    <Compile Include="QLNHAP.cs" />
     <Compile Include="QLSP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

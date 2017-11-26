@@ -11,23 +11,23 @@ namespace DAO
 {
     public class QLDOITAC
     {
-        private KHODMEntities db = new KHODMEntities();
+        private static KHODMEntities db = new KHODMEntities();
         //nha cung cap
-        public List<NCC> load()
+        public static List<NCC> load()
         {
             return db.NCCs.ToList();        
         }
-        public void them(NCC ncc)
+        public static void them(NCC ncc)
         {
             db.NCCs.Add(ncc);
             db.SaveChanges();
         }
-        public void sua(NCC ncc)
+        public static void sua(NCC ncc)
         {
             db.Entry(ncc).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public void tangno(PHIEUNHAP pn)
+        public static void tangno(PHIEUNHAP pn)
         {
             var ncc = db.NCCs.Find(pn.IDNCC);
             int t = 0;
@@ -39,7 +39,7 @@ namespace DAO
             db.Entry(ncc).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public void giamno(PHIEUCHI pc)
+        public static void giamno(PHIEUCHI pc)
         {
             var ncc = db.NCCs.Find(pc.IDNCC);
             ncc.TIENNO -= pc.TIEN;
@@ -47,21 +47,21 @@ namespace DAO
             db.SaveChanges();
         }
         // cua hang
-        public List<CUAHANG> load()
+        public static List<CUAHANG> load()
         {
             return db.CUAHANGs.ToList();
         }
-        public void them(CUAHANG ch)
+        public static void them(CUAHANG ch)
         {
             db.CUAHANGs.Add(ch);
             db.SaveChanges();
         }
-        public void sua(CUAHANG ch)
+        public static void sua(CUAHANG ch)
         {
             db.Entry(ch).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public void tangno(PHIEUXUAT px)
+        public static void tangno(PHIEUXUAT px)
         {
             var ncc = db.NCCs.Find(px.IDCH);
             int t = 0;
@@ -74,7 +74,7 @@ namespace DAO
             db.Entry(ncc).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public void giamno(PHIEUTHU pt)
+        public static void giamno(PHIEUTHU pt)
         {
             var ch = db.NCCs.Find(pt.IDCH);
             ch.TIENNO -= pt.TIEN;
