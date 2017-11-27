@@ -38,6 +38,7 @@ namespace DAO
         }
         public static void them(CTSUCO sc)
         {
+            sc.ID = db.SUCOes.Select(s => s.ID).LastOrDefault();
             db.CTSUCOes.Add(sc);
             db.SaveChanges();
         }

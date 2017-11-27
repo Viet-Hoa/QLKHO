@@ -38,6 +38,7 @@ namespace DAO
         }
         public static void them(CTDH dh)
         {
+            dh.ID = db.DONDATHANGs.Select(s => s.ID).LastOrDefault();
             db.CTDHs.Add(dh);
             db.SaveChanges();
         }
@@ -72,6 +73,7 @@ namespace DAO
         }
         public static void them(CTPN pn)
         {
+            pn.ID = db.PHIEUNHAPs.Select(s => s.ID).LastOrDefault();
             db.CTPNs.Add(pn);
             db.SaveChanges();
         }

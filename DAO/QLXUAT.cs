@@ -38,6 +38,7 @@ namespace DAO
         }
         public static void them(CTYCX yc)
         {
+            yc.ID = db.YCXUATs.Select(s => s.ID).LastOrDefault();
             db.CTYCXes.Add(yc);
             db.SaveChanges();
         }
@@ -72,6 +73,7 @@ namespace DAO
         }
         public static void them(CTPX px)
         {
+            px.ID = db.PHIEUXUATs.Select(s => s.ID).LastOrDefault();
             db.CTPXes.Add(px);
             db.SaveChanges();
         }

@@ -12,6 +12,7 @@ namespace DAO
     public class QLTK
     {
         private static KHODMEntities db = new KHODMEntities();
+        public static int manv;
         public static List<NHANVIEN> load()
         {
             return db.NHANVIENs.ToList();
@@ -29,13 +30,16 @@ namespace DAO
         public int dangnhap(String uname, String pas)
         {
             var nv = db.NHANVIENs.Where(s => s.USERNAME == uname && s.PASSWORD == pas).FirstOrDefault();
-            if (nv == null)
-                return 0;//nhap sai
-            if (nv.TINHTRANG == false)
-                return 3;//tai khoan bi khoa
-            if (nv.LOAI == "admin")
-                return 1; //nv la admin
-            return 2;//nv la user
+            if(nv!=null)
+            {
+                manv = nv.ID;
+                if (nv.TINHTRANG == false)
+                    return 3;//tai khoan bi khoa
+                if (nv.LOAI == "admin")
+                    return 1; //nv la admin
+                return 2;//nv la user
+            }
+            return 0;//nhap sai
         }
     }
 }
