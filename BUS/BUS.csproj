@@ -39,9 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QLDOITAC_BUS.cs" />
     <Compile Include="QLNHAP_BUS.cs" />
     <Compile Include="QLSP_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLSUCO_BUS.cs" />
+    <Compile Include="QLTHUCHI_BUS.cs" />
+    <Compile Include="QLTK_BUS.cs" />
+    <Compile Include="QLTONK_BUS.cs" />
+    <Compile Include="QLXUAT_BUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">

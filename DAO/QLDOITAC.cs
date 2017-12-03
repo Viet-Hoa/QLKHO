@@ -13,7 +13,7 @@ namespace DAO
     {
         private static KHODMEntities db = new KHODMEntities();
         //nha cung cap
-        public static List<NCC> load()
+        public static List<NCC> loadncc()
         {
             return db.NCCs.ToList();        
         }
@@ -47,7 +47,7 @@ namespace DAO
             db.SaveChanges();
         }
         // cua hang
-        public static List<CUAHANG> load()
+        public static List<CUAHANG> loadch()
         {
             return db.CUAHANGs.ToList();
         }

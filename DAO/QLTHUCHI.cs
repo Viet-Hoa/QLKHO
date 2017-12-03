@@ -13,7 +13,7 @@ namespace DAO
     {
         private static KHODMEntities db = new KHODMEntities();
         //PHIEUTHU
-        public static List<PHIEUTHU> load(PHIEUTHU pt)
+        public static List<PHIEUTHU> loadthu()
         {
             return db.PHIEUTHUs.Include(s => s.CUAHANG.TENCH).OrderByDescending(s => s.NGAY).ToList();
         }
@@ -28,7 +28,7 @@ namespace DAO
             db.SaveChanges();
         }
         //chi
-        public static List<PHIEUCHI> load(PHIEUCHI pc)
+        public static List<PHIEUCHI> loadchi()
         {
             return db.PHIEUCHIs.Include(s => s.NCC.TENNCC).OrderByDescending(s => s.NGAY).ToList();
         }
