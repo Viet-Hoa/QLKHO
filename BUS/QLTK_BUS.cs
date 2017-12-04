@@ -10,6 +10,7 @@ namespace BUS
 {
      public class QLTK_BUS
     {
+        public static int idnv = DAO.QLTK.manv;
         public static List<NHANVIEN> load()
         {
             return DAO.QLTK.load();

@@ -99,7 +99,22 @@ namespace BUS
             try
             {
                 foreach (var ct in px)
+                {
                     DAO.QLXUAT.them(ct);
+                    DAO.QLSP.giamsl(ct.IDSP, ct.SL);
+                }                    
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public static int tangno(int id)
+        {
+            try
+            {
+                DAO.QLDOITAC.tangnoch(id);
                 return 1;
             }
             catch

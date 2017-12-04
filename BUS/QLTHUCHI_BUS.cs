@@ -9,6 +9,7 @@ namespace BUS
 {
     class QLTHUCHI_BUS
     {
+        //thu
         public static List<PHIEUTHU> load()
         {
             return DAO.QLTHUCHI.loadthu();
@@ -18,6 +19,7 @@ namespace BUS
             try
             {
                 DAO.QLTHUCHI.them(pt);
+                DAO.QLDOITAC.giamno(pt);
                 return 1;
             }
             catch (Exception ex)
@@ -29,7 +31,7 @@ namespace BUS
         {
             DAO.QLTHUCHI.xoa(pt);
         }
-
+        //chi
         public static List<PHIEUCHI> loadchi()
         {
             return DAO.QLTHUCHI.loadchi();
@@ -39,6 +41,7 @@ namespace BUS
             try
             {
                 DAO.QLTHUCHI.them(pc);
+                DAO.QLDOITAC.giamno(pc)
                 return 1;
             }
             catch (Exception ex)

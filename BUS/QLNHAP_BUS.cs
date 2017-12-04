@@ -114,5 +114,17 @@ namespace BUS
                 return 0;
             }
         }
+        public static int tangno(int id)
+        {
+            try
+            {
+                DAO.QLDOITAC.tangnocc(id);
+                return 1;
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+        }
     }
 }

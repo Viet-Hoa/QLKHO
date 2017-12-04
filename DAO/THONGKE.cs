@@ -35,36 +35,29 @@ namespace DAO
         {
             return db.PHIEUCHIs.Where(s => s.NGAY >= tu && s.NGAY <= den).ToList();
         }
-        public static List<CTPX> loadbanchay(DateTime tu, DateTime den)
-        {
-            List<CTPX> kq=new List<CTPX>();  
+        public static List<SANPHAM> loadbanchay(DateTime tu, DateTime den)
+        { 
             var x = db.PHIEUXUATs.Where(s => s.NGAY >= tu && s.NGAY <= den).ToList();
-            var sp=db.SANPHAMs.ToList();
-            for(int i=0; i<sp.Count;i++)
+            var sp=db.SANPHAMs.Where(s=>s.TINHTRANG == true).ToList();
+            foreach(var u in sp)
             {
-                CTPX ct = new CTPX();
-                ct.ID = i;
-                ct.IDSP = sp[i].ID;
-                ct.SL = 0;
-                ct.GHICHU = " ";
-                kq.Add(ct);
+                u.SL = 0;
             }
-            kq=kq.Join(sp, CTPX => CTPX.IDSP, SANPHAM => SANPHAM.ID, (CTPX, SANPHAM) => new CTPX { ID = CTPX.ID, IDSP = CTPX.IDSP, SL = CTPX.SL, SANPHAM = SANPHAM }).ToList();            
             foreach(PHIEUXUAT px in x)
             {
                 foreach(CTPX ct in px.CTPXes)
                 {
-                    foreach(CTPX ctkq in kq)
+                    foreach(var u in sp)
                     {
-                        if (ct.IDSP == ctkq.IDSP)
+                        if (ct.IDSP == u.ID)
                         {
-                            ctkq.SL += ct.SL;
+                            u.SL += ct.SL;
                             break;
                         }
                     }
                 }
             }
-            return kq;
+            return sp.OrderByDescending(s=>s.SL).ToList();
         }
     }
 }

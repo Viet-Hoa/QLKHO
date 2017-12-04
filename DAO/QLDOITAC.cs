@@ -27,11 +27,13 @@ namespace DAO
             db.Entry(ncc).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public static void tangno(PHIEUNHAP pn)
+        public static void tangnocc(int id)
         {
-            var ncc = db.NCCs.Find(pn.IDNCC);
+            var ncc = db.NCCs.Find(id);
             int t = 0;
-            foreach(CTPN ct in pn.CTPNs)
+            int idpn = db.PHIEUNHAPs.Select(s => s.ID).LastOrDefault();
+            var ctpn = db.CTPNs.Where(s => s.ID == idpn).ToList();
+            foreach(CTPN ct in ctpn)
             {
                 t += ct.DONGIA * ct.SL;
             }
@@ -61,11 +63,13 @@ namespace DAO
             db.Entry(ch).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public static void tangno(PHIEUXUAT px)
+        public static void tangnoch(int id)
         {
-            var ncc = db.NCCs.Find(px.IDCH);
+            var ncc = db.NCCs.Find(id);
             int t = 0;
-            foreach (CTPX ct in px.CTPXes)
+            var px = db.PHIEUXUATs.LastOrDefault();
+            var ctpx = db.CTPXes.Where(s => s.ID == px.ID).ToList();
+            foreach (CTPX ct in ctpx)
             {
                 int gt = ct.SL * ct.SANPHAM.DG;
                 t += (int)((100 + px.PHANTRAMLOI) / 100 * gt - (px.KHUYENMAI/100 * gt));

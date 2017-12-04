@@ -47,6 +47,7 @@
     <Compile Include="QLTHUCHI_BUS.cs" />
     <Compile Include="QLTK_BUS.cs" />
     <Compile Include="QLTONK_BUS.cs" />
+    <Compile Include="THONGKE_BUS.cs" />
     <Compile Include="QLXUAT_BUS.cs" />
   </ItemGroup>
   <ItemGroup>
