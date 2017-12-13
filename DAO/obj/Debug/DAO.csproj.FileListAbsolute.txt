@@ -1,0 +1,12 @@
+D:\QLKHO\DAO\bin\Debug\DAO.dll.config
+D:\QLKHO\DAO\bin\Debug\DAO.dll
+D:\QLKHO\DAO\bin\Debug\DAO.pdb
+D:\QLKHO\DAO\bin\Debug\DTO.dll
+D:\QLKHO\DAO\bin\Debug\EntityFramework.dll
+D:\QLKHO\DAO\bin\Debug\DTO.pdb
+D:\QLKHO\DAO\bin\Debug\EntityFramework.xml
+D:\QLKHO\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+D:\QLKHO\DAO\obj\Debug\DAO.dll
+D:\QLKHO\DAO\obj\Debug\DAO.pdb
+D:\QLKHO\DAO\bin\Debug\DTO.dll.config
+D:\QLKHO\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache

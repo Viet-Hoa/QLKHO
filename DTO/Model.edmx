@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KHODMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KHODMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CTDH">
           <Key>
             <PropertyRef Name="ID" />
@@ -109,7 +109,7 @@
           <Property Name="DT" Type="nchar" MaxLength="11" Nullable="false" />
           <Property Name="USERNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LOAI" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="LOAI" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="GHICHU" Type="nvarchar(max)" />
           <Property Name="TINHTRANG" Type="bit" Nullable="false" />
         </EntityType>
@@ -473,6 +473,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__YCXUAT__IDNV__656C112C">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="YCXUAT" Type="Self.YCXUAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="YCXUAT">
+              <PropertyRef Name="IDNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="KHODMModelStoreContainer">
           <EntitySet Name="CTDH" EntityType="Self.CTDH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTPN" EntityType="Self.CTPN" Schema="dbo" store:Type="Tables" />
@@ -584,9 +596,12 @@
             <End Role="CUAHANG" EntitySet="CUAHANG" />
             <End Role="YCXUAT" EntitySet="YCXUAT" />
           </AssociationSet>
+          <AssociationSet Name="FK__YCXUAT__IDNV__656C112C" Association="Self.FK__YCXUAT__IDNV__656C112C">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="YCXUAT" EntitySet="YCXUAT" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KHODMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -715,7 +730,7 @@
           <Property Name="DT" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LOAI" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="LOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TINHTRANG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DONDATHANGs" Relationship="Self.FK__DONDATHANG__IDNV__4316F928" FromRole="NHANVIEN" ToRole="DONDATHANG" />
@@ -723,6 +738,7 @@
           <NavigationProperty Name="PHIEUXUATs" Relationship="Self.FK__PHIEUXUAT__IDNV__48CFD27E" FromRole="NHANVIEN" ToRole="PHIEUXUAT" />
           <NavigationProperty Name="SUCOes" Relationship="Self.FK__SUCO__IDNV__49C3F6B7" FromRole="NHANVIEN" ToRole="SUCO" />
           <NavigationProperty Name="TONKHOes" Relationship="Self.FK__TONKHO__IDNV__4AB81AF0" FromRole="NHANVIEN" ToRole="TONKHO" />
+          <NavigationProperty Name="YCXUATs" Relationship="KHODMModel.FK__YCXUAT__IDNV__656C112C" FromRole="NHANVIEN" ToRole="YCXUAT" />
         </EntityType>
         <EntityType Name="PHIEUCHI">
           <Key>
@@ -827,6 +843,7 @@
           <Property Name="GHICHU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CTYCXes" Relationship="Self.FK__CTYCX__ID__403A8C7D" FromRole="YCXUAT" ToRole="CTYCX" />
           <NavigationProperty Name="CUAHANG" Relationship="Self.FK__YCXUAT__IDCH__4BAC3F29" FromRole="YCXUAT" ToRole="CUAHANG" />
+          <NavigationProperty Name="NHANVIEN" Relationship="KHODMModel.FK__YCXUAT__IDNV__656C112C" FromRole="YCXUAT" ToRole="NHANVIEN" />
         </EntityType>
         <Association Name="FK__CTDH__ID__36B12243">
           <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="1" />
@@ -1215,7 +1232,23 @@
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="TONKHO" EntitySet="TONKHOes" />
           </AssociationSet>
+          <AssociationSet Name="FK__YCXUAT__IDNV__656C112C" Association="KHODMModel.FK__YCXUAT__IDNV__656C112C">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="YCXUAT" EntitySet="YCXUATs" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__YCXUAT__IDNV__656C112C">
+          <End Type="KHODMModel.NHANVIEN" Role="NHANVIEN" Multiplicity="1" />
+          <End Type="KHODMModel.YCXUAT" Role="YCXUAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="YCXUAT">
+              <PropertyRef Name="IDNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

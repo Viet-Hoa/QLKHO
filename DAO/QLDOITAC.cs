@@ -31,7 +31,7 @@ namespace DAO
         {
             var ncc = db.NCCs.Find(id);
             int t = 0;
-            int idpn = db.PHIEUNHAPs.Select(s => s.ID).LastOrDefault();
+            int idpn = db.PHIEUNHAPs.OrderByDescending(s => s.ID).FirstOrDefault().ID;
             var ctpn = db.CTPNs.Where(s => s.ID == idpn).ToList();
             foreach(CTPN ct in ctpn)
             {
@@ -67,7 +67,7 @@ namespace DAO
         {
             var ncc = db.NCCs.Find(id);
             int t = 0;
-            var px = db.PHIEUXUATs.LastOrDefault();
+            var px = db.PHIEUXUATs.OrderByDescending(s => s.ID).FirstOrDefault();
             var ctpx = db.CTPXes.Where(s => s.ID == px.ID).ToList();
             foreach (CTPX ct in ctpx)
             {

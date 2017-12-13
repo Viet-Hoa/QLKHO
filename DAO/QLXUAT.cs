@@ -15,7 +15,7 @@ namespace DAO
         //ycxuat
         public static List<YCXUAT> loadyc()
         {
-            return db.YCXUATs.Include(s => s.CUAHANG.TENCH).OrderByDescending(s => s.NGAY).ToList();
+            return db.YCXUATs.Include(s => s.CUAHANG).Include(s=>s.NHANVIEN).OrderByDescending(s => s.NGAY).ToList();
         }
         public static void them(YCXUAT yc)
         {
@@ -34,11 +34,13 @@ namespace DAO
         }
         public static List<CTYCX> loadyc(int id)
         {
-            return db.CTYCXes.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
+            return db.CTYCXes.Include(s => s.SANPHAM).Where(s => s.ID == id).ToList();
         }
         public static void them(CTYCX yc)
         {
-            yc.ID = db.YCXUATs.Select(s => s.ID).LastOrDefault();
+            var x = db.YCXUATs.AsNoTracking().OrderByDescending(s => s.ID).FirstOrDefault();
+            yc.ID = x.ID;
+            yc.SANPHAM = null;
             db.CTYCXes.Add(yc);
             db.SaveChanges();
         }
@@ -60,7 +62,7 @@ namespace DAO
         //xuat
         public static List<PHIEUXUAT> loadpx()
         {
-            return db.PHIEUXUATs.Include(s => s.CUAHANG.TENCH).OrderByDescending(s => s.NGAY).ToList();
+            return db.PHIEUXUATs.Include(s => s.CUAHANG).Include(s => s.NHANVIEN).OrderByDescending(s => s.NGAY).ToList();
         }
         public static void them(PHIEUXUAT px)
         {
@@ -69,11 +71,13 @@ namespace DAO
         }
         public static List<CTPX> loadpx(int id)
         {
-            return db.CTPXes.Include(s => s.SANPHAM.TENSP).Where(s => s.ID == id).ToList();
+            return db.CTPXes.Include(s => s.SANPHAM).Where(s => s.ID == id).ToList();
         }
         public static void them(CTPX px)
         {
-            px.ID = db.PHIEUXUATs.Select(s => s.ID).LastOrDefault();
+            var x = db.PHIEUXUATs.AsNoTracking().OrderByDescending(s => s.ID).FirstOrDefault();
+            px.ID = x.ID;
+            px.SANPHAM = null;
             db.CTPXes.Add(px);
             db.SaveChanges();
         }

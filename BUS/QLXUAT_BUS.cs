@@ -23,6 +23,7 @@ namespace BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -35,6 +36,7 @@ namespace BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -69,10 +71,14 @@ namespace BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
-
+        public static void xoa(int id)
+        {
+            DAO.QLXUAT.xoa(id);
+        }
         public static List<PHIEUXUAT> loadpx()
         {
             return DAO.QLXUAT.loadpx();
@@ -86,6 +92,7 @@ namespace BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }

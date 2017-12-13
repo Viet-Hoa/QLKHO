@@ -23,6 +23,7 @@ namespace BUS
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -35,12 +36,17 @@ namespace BUS
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
         public static void xoa(DONDATHANG dh)
         {
             DAO.QLNHAP.xoa(dh);
+        }
+        public static void xoa()
+        {
+            DAO.QLNHAP.xoa();
         }
         //ctdh
         public static List<CTDH> loaddh(int id)
@@ -57,6 +63,7 @@ namespace BUS
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -69,10 +76,11 @@ namespace BUS
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
-        public void xoa(int id)
+        public static void xoa(int id)
         {
             DAO.QLNHAP.xoa(id);
         }
@@ -89,6 +97,7 @@ namespace BUS
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -111,6 +120,7 @@ namespace BUS
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -123,6 +133,7 @@ namespace BUS
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }

@@ -23,7 +23,8 @@ namespace DAO
         }
         public static void sua(SANPHAM sp)
         {
-            db.Entry(sp).State = EntityState.Modified;
+            var v = db.SANPHAMs.Find(sp.ID);
+            db.Entry(v).CurrentValues.SetValues(sp);
             db.SaveChanges();
         }
         public static void tangsl(int id, int sl)

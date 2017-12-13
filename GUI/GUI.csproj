@@ -32,8 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,14 +52,93 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="User.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Thempx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thempx.Designer.cs">
+      <DependentUpon>Thempx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemYCX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemYCX.Designer.cs">
+      <DependentUpon>ThemYCX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemCTDH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemCTDH.Designer.cs">
+      <DependentUpon>ThemCTDH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Thempn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thempn.Designer.cs">
+      <DependentUpon>Thempn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XemCTDH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XemCTDH.Designer.cs">
+      <DependentUpon>XemCTDH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xemycx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xemycx.Designer.cs">
+      <DependentUpon>Xemycx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xempx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xempx.Designer.cs">
+      <DependentUpon>Xempx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xempn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xempn.Designer.cs">
+      <DependentUpon>Xempn.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="User.resx">
+      <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thempx.resx">
+      <DependentUpon>Thempx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemYCX.resx">
+      <DependentUpon>ThemYCX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemCTDH.resx">
+      <DependentUpon>ThemCTDH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,6 +148,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Thempn.resx">
+      <DependentUpon>Thempn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XemCTDH.resx">
+      <DependentUpon>XemCTDH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xemycx.resx">
+      <DependentUpon>Xemycx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xempx.resx">
+      <DependentUpon>Xempx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xempn.resx">
+      <DependentUpon>Xempn.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

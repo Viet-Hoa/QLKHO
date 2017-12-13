@@ -36,7 +36,7 @@ namespace BUS
             }
             return t;
         }
-        public static List<PHIEUCHI> loadthu(DateTime tu, DateTime den)
+        public static List<PHIEUCHI> loadchi(DateTime tu, DateTime den)
         {
             pc = DAO.THONGKE.loadchi(tu, den);
             return pc;

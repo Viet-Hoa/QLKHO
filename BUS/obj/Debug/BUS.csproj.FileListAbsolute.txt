@@ -1,0 +1,14 @@
+D:\QLKHO\BUS\bin\Debug\BUS.dll
+D:\QLKHO\BUS\bin\Debug\BUS.pdb
+D:\QLKHO\BUS\bin\Debug\DAO.dll
+D:\QLKHO\BUS\bin\Debug\DTO.dll
+D:\QLKHO\BUS\bin\Debug\EntityFramework.dll
+D:\QLKHO\BUS\bin\Debug\DAO.pdb
+D:\QLKHO\BUS\bin\Debug\DTO.pdb
+D:\QLKHO\BUS\bin\Debug\EntityFramework.xml
+D:\QLKHO\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+D:\QLKHO\BUS\obj\Debug\BUS.dll
+D:\QLKHO\BUS\obj\Debug\BUS.pdb
+D:\QLKHO\BUS\bin\Debug\DAO.dll.config
+D:\QLKHO\BUS\bin\Debug\DTO.dll.config
+D:\QLKHO\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache

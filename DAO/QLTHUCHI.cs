@@ -15,7 +15,7 @@ namespace DAO
         //PHIEUTHU
         public static List<PHIEUTHU> loadthu()
         {
-            return db.PHIEUTHUs.Include(s => s.CUAHANG.TENCH).OrderByDescending(s => s.NGAY).ToList();
+            return db.PHIEUTHUs.Include(s => s.CUAHANG).OrderByDescending(s => s.NGAY).ToList();
         }
         public static void them(PHIEUTHU pt)
         {
@@ -30,7 +30,7 @@ namespace DAO
         //chi
         public static List<PHIEUCHI> loadchi()
         {
-            return db.PHIEUCHIs.Include(s => s.NCC.TENNCC).OrderByDescending(s => s.NGAY).ToList();
+            return db.PHIEUCHIs.Include(s => s.NCC).OrderByDescending(s => s.NGAY).ToList();
         }
         public static void them(PHIEUCHI pc)
         {

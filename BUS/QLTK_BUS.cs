@@ -10,7 +10,6 @@ namespace BUS
 {
      public class QLTK_BUS
     {
-        public static int idnv = DAO.QLTK.manv;
         public static List<NHANVIEN> load()
         {
             return DAO.QLTK.load();
@@ -24,6 +23,7 @@ namespace BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -36,8 +36,17 @@ namespace BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
+        }
+        public static int login(String u, String p)
+        {
+            return DAO.QLTK.dangnhap(u, p);            
+        }
+        public static NHANVIEN manv()
+        {
+            return DAO.QLTK.manv();
         }
     }
 }

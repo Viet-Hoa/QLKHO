@@ -18,12 +18,12 @@ namespace BUS
         {
             try
             {
-                sp.SL = 0;
                 DAO.QLSP.them(sp);
                 return 1;//them thanh cong
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;//gap loi
             }
         }
@@ -36,6 +36,7 @@ namespace BUS
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }

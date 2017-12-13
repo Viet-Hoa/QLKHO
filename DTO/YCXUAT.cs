@@ -30,5 +30,6 @@ namespace DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTYCX> CTYCXes { get; set; }
         public virtual CUAHANG CUAHANG { get; set; }
+        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

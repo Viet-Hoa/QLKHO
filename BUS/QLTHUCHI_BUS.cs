@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using DTO;
 namespace BUS
 {
-    class QLTHUCHI_BUS
+    public class QLTHUCHI_BUS
     {
         //thu
-        public static List<PHIEUTHU> load()
+        public static List<PHIEUTHU> loadthu()
         {
             return DAO.QLTHUCHI.loadthu();
         }
@@ -24,6 +24,7 @@ namespace BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -41,11 +42,12 @@ namespace BUS
             try
             {
                 DAO.QLTHUCHI.them(pc);
-                DAO.QLDOITAC.giamno(pc)
+                DAO.QLDOITAC.giamno(pc);
                 return 1;
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }

@@ -22,6 +22,7 @@ namespace DTO
             this.PHIEUXUATs = new HashSet<PHIEUXUAT>();
             this.SUCOes = new HashSet<SUCO>();
             this.TONKHOes = new HashSet<TONKHO>();
+            this.YCXUATs = new HashSet<YCXUAT>();
         }
     
         public int ID { get; set; }
@@ -45,5 +46,7 @@ namespace DTO
         public virtual ICollection<SUCO> SUCOes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TONKHO> TONKHOes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YCXUAT> YCXUATs { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace DAO
     public class QLTK
     {
         private static KHODMEntities db = new KHODMEntities();
-        public static int manv;
+        public static NHANVIEN ma;
         public static List<NHANVIEN> load()
         {
             return db.NHANVIENs.ToList();
@@ -24,22 +24,28 @@ namespace DAO
         }
         public static void sua(NHANVIEN nv)
         {
-            db.Entry(nv).State = EntityState.Modified;
+            var v = db.NHANVIENs.Find(nv.ID);
+            db.Entry(v).CurrentValues.SetValues(nv);
             db.SaveChanges();
         }
-        public int dangnhap(String uname, String pas)
+        public static int dangnhap(String uname, String pas)
         {
-            var nv = db.NHANVIENs.Where(s => s.USERNAME == uname && s.PASSWORD == pas).FirstOrDefault();
+            var nv = db.NHANVIENs.Where(s => s.USERNAME.Equals(uname) && s.PASSWORD.Equals(pas)).FirstOrDefault();
             if(nv!=null)
             {
-                manv = nv.ID;
+                ma = nv;
                 if (nv.TINHTRANG == false)
                     return 3;//tai khoan bi khoa
                 if (nv.LOAI == "admin")
                     return 1; //nv la admin
-                return 2;//nv la user
+                else
+                    return 2;//nv la user
             }
             return 0;//nhap sai
+        }
+        public static NHANVIEN manv()
+        {
+            return ma;
         }
     }
 }
